@@ -1,0 +1,14 @@
+// Import Global Styling:-
+@use '../../Global/global' as *;
+// Import Placeholders Styling:-
+@use '../../Global/placeholders' as *;
+// Import Variables Styling:-
+@use '../../Global/variables' as *;
+// Import Body Styling:-
+@use '../../Sections/body';
+// Import Side-Bar Styling:-
+@use '../../Sections/sidebar';
+// Import Heading Styling:-
+@use '../../Sections/header';
+// Import Profile Styling:-
+@use './profile-codes';

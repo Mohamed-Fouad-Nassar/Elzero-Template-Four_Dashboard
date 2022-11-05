@@ -1,0 +1,157 @@
+// Import Global Styling:-
+@use '../../Global/global' as *;
+// Import Placeholders Styling:-
+@use '../../Global/placeholders' as *;
+// Import Variables Styling:-
+@use '../../Global/variables' as *;
+
+/* Start Friends Styling:- */
+
+.friends {
+    .content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 20px;
+        @media (max-width: 575px) {
+            gap: 10px;
+        }
+        // Start Box Styling:-
+        .box {
+            padding-top: 40px;
+            @extend %border-radius-5;
+            @extend %flex-stretch-h;
+            .sec-head {
+                position: relative;
+                .image {
+                    width: 100px;
+                    height: 100px;
+                    margin: 0 auto;
+                    overflow: hidden;
+                    @extend %border-radius-50;
+                }
+                .data {
+                    @extend %flex-center-h;
+                    padding: {
+                        top: 15px;
+                        bottom: 15px;
+                    }
+                    h4 {
+                        margin: 0 {
+                            bottom: 5px;
+                        }
+                    }
+                    span {
+                        font-size: 0.8rem;
+                    }
+                }
+                .contact {
+                    position: absolute;
+                    top: -30px;
+                    left: -10px;
+                    @media (max-width: 575px) {
+                        left: 0;
+                    }
+                    a {
+                        background-color: $dark-white;
+                        padding: 10px;
+                        @extend %inline-flex-center;
+                        @extend %border-radius-50;
+                        i {
+                            color: $light-color;
+                            font-size: 0.9rem;
+                        }
+                        &:hover {
+                            background-color: $main-color;
+                            i {
+                                color: $white-color;
+                            }
+                        }
+                    }
+                }
+            }
+            .sec-body {
+                padding: {
+                    top: 15px;
+                    bottom: 15px;
+                }
+                border: {
+                    top: 1px solid $dark-white;
+                    bottom: 1px solid $dark-white;
+                }
+                .field {
+                    @extend %flex-center-between;
+                    &:not(:first-of-type) {
+                        margin-top: 10px
+                    }
+                    i {
+                        @extend %flex-center;
+                        margin-right: 5px;
+                        width: 25px;
+                        color: $black-color;
+                    }
+                    span {
+                        color: $black-color;
+                        flex: 1;
+                    }
+                }
+            }
+            .sec-foot {
+                padding-top: 10px;
+                @extend %flex-center-between;
+                span {
+                    font-size: 0.75rem;
+                }
+                .btns {
+                    a {
+                        display: inline-block;
+                        padding: 5px 10px;
+                        font-size: 0.75rem;
+                        background-color: $main-color;
+                        color: $white-color;
+                        @extend %border-radius-5;
+                        &:last-of-type {
+                            background-color: $red-color;
+                        }
+                    }
+                }
+            }
+            &.vip {
+                .sec-body {
+                    position: relative;
+                    &::after {
+                        content: 'vip';
+                        text-transform: uppercase;
+                        font: {
+                            size: 3rem;
+                            weight: 600;
+                        }
+                        color: $orange-color;
+                        opacity: 0.2;
+                        position: absolute;
+                        right: 0;
+                        @extend %translate-y-50;
+                    }
+                }
+            }
+        }
+        // End Box Styling
+    }
+    @media (prefers-color-scheme: dark) {
+        .content {
+            .box {
+                .sec-body {
+                    border-color: $dark-white-dark-color;
+                    .field {
+                        span,
+                        i {
+                            color: $dark-white-dark-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* End Friends Styling */

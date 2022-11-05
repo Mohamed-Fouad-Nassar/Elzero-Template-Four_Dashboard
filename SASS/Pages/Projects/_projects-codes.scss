@@ -1,0 +1,99 @@
+// Import Global Styling:-
+@use '../../Global/global' as *;
+// Import Placeholders Styling:-
+@use '../../Global/placeholders' as *;
+// Import Variables Styling:-
+@use '../../Global/variables' as *;
+
+/* Start Setting Styling:- */
+
+.projects {
+    .content {
+        @extend %grid-400-20;
+        font-weight: 500;
+        @media (max-width: 767px) {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        @media (max-width: 575px) {
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 10px;
+        }
+        // Start Box Styling:-
+        .box {
+            &::before {
+                content: attr(data-attr);
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: $light-color;
+                font-size: 0.8rem;
+            }
+            @extend %flex-stretch-h;
+            gap: 10px;
+            position: relative;
+            .head-sec {
+                span {
+                    display: block;
+                    &:first-of-type {
+                        color: $black-color;
+                        margin-bottom: 15px;
+                    }
+                    &:last-of-type {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+            .team {
+                border-bottom: 1px solid $dark-white;
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
+            .skills {
+                display: flex;
+                flex-wrap: wrap;
+                align-self: flex-end;
+                gap: 5px;
+                span {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    color: $black-color;
+                    background-color: $dark-white;
+                    font-size: 0.9rem;
+                    @extend %border-radius-5;
+                }
+            }
+            .sec-foot {
+                border-top: 1px solid $dark-white;
+                padding-top: 20px;
+                @extend %flex-center-between;
+                .progress-shape {
+                    max-width: 250px;
+                    @media (max-width: 767px) {
+                        max-width: 200px;
+                    }
+                }
+            }
+        }
+        // End Box Styling
+    }
+    @media (prefers-color-scheme: dark) {
+        .content {
+            .box {
+                .head-sec {
+                    span {
+                        &:first-of-type {
+                            color: $white-dark-color;
+                        }
+                    }
+                }
+                .team,
+                .sec-foot {
+                    border-color: $dark-white-dark-color;
+                }
+            }
+        }
+    }
+}
+
+
+/* End Setting Styling */

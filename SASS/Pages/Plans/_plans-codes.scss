@@ -1,0 +1,186 @@
+// Import Global Styling:-
+@use '../../Global/global' as *;
+// Import Placeholders Styling:-
+@use '../../Global/placeholders' as *;
+// Import Variables Styling:-
+@use '../../Global/variables' as *;
+
+/* Start Files Styling:- */
+
+.plans {
+    .content {
+        @extend %grid-300-20;
+        @media (max-width: 575px) {
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 10px;
+        }
+        // Start Box:-
+        .box {
+            font-weight: 500;
+            .sec-head {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 4px;
+                    left: 4px;
+                    border: 3px solid $white-color;
+                    width: calc(100% - 15px);
+                    height: calc(100% - 15px);
+                    background-color: transparent;
+                }
+                padding: 30px 20px;
+                position: relative;
+                background-color: $main-color;
+                color: $white-color;
+                h2 {
+                    width: -webkit-fit-content;
+                    width: -moz-fit-content;
+                    width: fit-content;
+                    position: relative;
+                    margin: 0 auto;
+                    font: {
+                        weight: 700;
+                        size: 1.8rem;
+                    }
+                }
+                p {
+                    &::before {
+                        content: attr(data-attr);
+                        position: absolute;
+                        top: 15px;
+                        left: -20px;
+                        font: {
+                            weight: 600;
+                            size: 1.5rem;
+                        }
+                    }
+                    width: -webkit-fit-content;
+                    width: -moz-fit-content;
+                    width: fit-content;
+                    margin: 0 auto;
+                    padding-top: 20px;
+                    font: {
+                        weight: 500;
+                        size: 2.5rem;
+                    }
+                    position: relative;
+                }
+            }
+            .sec-body {
+                padding-top: 20px;
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: none;
+                    @extend %reset;
+                    li {
+                        @extend %flex-center-between;
+                        gap: 10px;
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                        @extend %reset;
+                        border-bottom: 1px solid $dark-white;
+                        i {
+                            min-width: 16px;
+                            color: $main-color;
+                            &.green {
+                                color: $green-color;
+                            }
+                            &.red {
+                                font-size: 1.1rem;
+                                color: $red-color;
+                            }
+                        }
+                        span {
+                            color: $black-color;
+                            flex: 1;
+                            font-size: 0.95rem;
+                            @media (max-width: 575px) {
+                                font-size: 0.9rem;
+                            }
+                        }
+                        a {
+                            i {
+                                color: $un-checked-color;
+                            }
+                            &:hover {
+                                i {
+                                    color: $black-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .sec-foot {
+                padding-top: 20px;
+                span {
+                    display: none;
+                }
+                input[type='button'] {
+                    border: none;
+                    outline: none;
+                    color: $white-color;
+                    background-color: $main-color;
+                    padding: 5px 10px;
+                    @extend %border-radius-5;
+                }
+            }
+            &.green {
+                .sec-head {
+                    background-color: $green-color;
+                }
+                .sec-foot {
+                    input[type='button'] {
+                        background-color: $green-color;
+                    }
+                }
+            }
+            &.orange {
+                .sec-head {
+                    background-color: $orange-color;
+                }
+                .sec-foot {
+                    input[type='button'] {
+                        background-color: $orange-color;
+                    }
+                }
+            }
+            &.active {
+                .sec-foot {
+                    position: relative;
+                    input[type='button'] {
+                        display: none;
+                    }
+                    span {
+                        display: block;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        // End Box
+        @media (prefers-color-scheme: dark) {
+            .box {
+                .sec-head {
+                    &::before {
+                        border-color: $white-dark-color;
+                    }
+                }
+                .sec-body {
+                    ul {
+                        li {
+                            border-color: $dark-white-dark-color;
+                            span {
+                                color: $white-dark-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* End Files Styling */

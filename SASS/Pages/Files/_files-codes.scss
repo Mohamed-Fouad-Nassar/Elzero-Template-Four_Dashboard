@@ -1,0 +1,236 @@
+// Import Global Styling:-
+@use '../../Global/global' as *;
+// Import Placeholders Styling:-
+@use '../../Global/placeholders' as *;
+// Import Variables Styling:-
+@use '../../Global/variables' as *;
+
+/* Start Files Styling:- */
+
+.files {
+    .content {
+        @extend %flex-start-between;
+        flex-direction: row-reverse;
+        gap: 20px;
+        @media (max-width: 991px) {
+            flex-direction: column;
+            .left,
+            .right {
+                width: 100%;
+            }
+        }
+        @media (max-width: 575px) {
+            gap: 10px;
+        }
+        .left {
+            min-width: 270px;
+            article.box {
+                @extend %flex-stretch-h;
+                gap: 20px;
+                font-weight: 500;
+                @media (max-width: 575px) {
+                    gap: 10px;
+                }
+                .heading {
+                    padding-bottom: 0;
+                }
+                .cont {
+                    @extend %flex-stretch-h;
+                    gap: 15px;
+                    @media (max-width: 575px) {
+                        gap: 5px;
+                    }
+                    .box {
+                        @extend %flex-center-between;
+                        padding: 10px;
+                        border: 1px solid $dark-white;
+                        @extend %border-radius-5;
+                        .image {
+                            @extend %flex-center;
+                            background-color: rgb(0 119 255 / 20%);
+                            color: $main-color;
+                            width: 50px;
+                            height: 50px;
+                        }
+                        .data {
+                            flex: 1;
+                            padding: 0 10px;
+                            span {
+                                display: block;
+                                font-size: 0.8rem;
+                                &:first-of-type {
+                                    font-size: 0.95rem;
+                                    margin-bottom: 5px;
+                                    color: $black-color;
+                                }
+                            }
+                        }
+                        .size {
+                            span {
+                                font-size: 0.8rem;
+                                text-transform: uppercase;
+                            }
+                        }
+                        &.red {
+                            .image {
+                                background-color: rgb(244 67 54 / 20%);
+                                color: $red-color;
+                            }
+                        }
+                        &.orange {
+                            .image {
+                                background-color: rgb(245 159 11 / 20%);
+                                color: $orange-color;
+                            }
+                        }
+                        &.green {
+                            .image {
+                                background-color: rgb(34 197 94 / 20%);
+                                color: $green-color;
+                            }
+                        }
+                    }
+                }
+                .btn {
+                    button {
+                        display: block;
+                        padding: 10px;
+                        margin: 0 auto;
+                        background-color: $main-color;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                        @extend %border-radius-5;
+                        i,
+                        span {
+                            position: relative;
+                            color: $white-color;
+                            font-size: 0.9rem;
+                        }
+                        &:hover {
+                            background-color: $sec-color;
+                            i {
+                                animation: up-down 0.2s alternate infinite;
+                                -webkit-animation: up-down 0.2s alternate infinite;
+                            }
+                        }
+                    }
+                }
+            }
+            @media (prefers-color-scheme: dark) {
+                .cont {
+                    .box {
+                        border-color: $dark-white-dark-color;
+                        .data {
+                            span {
+                                &:first-of-type {
+                                    color: $white-dark-color !important;
+                                }
+                            }
+                        }
+                        .image {
+                            background-color: rgb(0 119 255 / 50%) !important;
+                        }
+                        &.red {
+                            .image {
+                                background-color: rgb(244 67 54 / 50%) !important;
+                            }
+                        }
+                        &.orange {
+                            .image {
+                                background-color: rgb(245 159 11 / 50%) !important;
+                            }
+                        }
+                        &.green {
+                            .image {
+                                background-color: rgb(34 197 94 / 50%) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .right {
+            flex: 1;
+            @extend %grid-200-20;
+            @media (max-width: 575px) {
+                gap: 10px;
+            }
+            // Start Box Styling:-
+            .box {
+                padding: 10px;
+                position: relative;
+                &::before {
+                    content: '\f019';
+                    font-weight: 900;
+                    font-family: 'Font Awesome 6 Free';
+                    color: $light-color;
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                }
+                &:hover .sec-head .image img {
+                    transform: rotate(5deg);
+                    -webkit-transform: rotate(5deg);
+                    -moz-transform: rotate(5deg);
+                    -ms-transform: rotate(5deg);
+                    -o-transform: rotate(5deg);
+                }
+                .sec-head {
+                    width: -webkit-fit-content;
+                    width: -moz-fit-content;
+                    width: fit-content;
+                    padding: 0 30px;
+                    margin: 0 auto;
+                    .image {
+                        margin-top: 20px;
+                        width: 70px;
+                    }
+                    .label {
+                        margin-top: 15px;
+                        span {
+                            text-transform: none;
+                            color: $black-color;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .sec-body {
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                    span {
+                        font-size: 0.9rem;
+                    }
+                }
+                .sec-foot {
+                    padding-top: 10px;
+                    border-top: 1px solid $dark-white;
+                    @extend %flex-center-between;
+                    gap: 10px;
+                    span {
+                        font-size: 0.9rem;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+            // End Box Styling
+            @media (prefers-color-scheme: dark) {
+                .box {
+                    .sec-head {
+                        .label {
+                            span {
+                                color: $white-dark-color;
+                            }
+                        }
+                    }
+                    .sec-foot {
+                        border-color: $dark-white-dark-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* End Files Styling */

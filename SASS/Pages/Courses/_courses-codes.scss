@@ -1,0 +1,133 @@
+// Import Global Styling:-
+@use '../../Global/global' as *;
+// Import Placeholders Styling:-
+@use '../../Global/placeholders' as *;
+// Import Variables Styling:-
+@use '../../Global/variables' as *;
+
+/* Start Setting Styling:- */
+
+.courses {
+    .content {
+        @extend %grid-300-20;
+        @media (max-width: 767px) {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        font-weight: 500;
+        // Start Box Styling:-
+        .box {
+            padding: 0;
+            overflow: hidden;
+            .image {
+                position: relative;
+                img {
+                    width: 100%;
+                }
+                .team-image {
+                    width: 65px;
+                    height: 65px;
+                    position: absolute;
+                    top: 20px;
+                    left: 20px;
+                    border: 2px solid $white-color;
+                    background-color: $white-color;
+                    overflow: hidden;
+                    @extend %border-radius-50;
+                    @media (max-width: 767px) {
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+            }
+            .cont {
+                .sec-head {
+                    padding: 20px;
+                    h3 {
+                        margin: 0 {
+                            bottom: 10px;
+                        }
+                        font: {
+                            size: 1.1rem;
+                            weight: 600;
+                        }
+                    }
+                    p {
+                        color: $light-color;
+                        font-size: 0.95rem;
+                        line-height: 1.6;
+                        margin: 0;
+                    }
+                }
+                .info {
+                    position: relative;
+                    &::before {
+                        content: '';
+                        width: 100%;
+                        height: 1px;
+                        position: absolute;
+                        left: 0;
+                        background-color: $dark-white;
+                        @extend %translate-y-50;
+                    }
+                    span {
+                        display: block;
+                        width: -webkit-fit-content;
+                        width: -moz-fit-content;
+                        width: fit-content;
+                        margin: auto;
+                        padding: 5px;
+                        font-size: 0.8rem;
+                        background-color: $main-color;
+                        color: $white-color;
+                        position: relative;
+                        z-index: 2;
+                        @extend %border-radius-5;
+                    }
+                }
+                .sec-foot {
+                    @extend %flex-center-between;
+                    padding: 10px 20px 20px;
+                    >div {
+                        i {
+                            color: $light-color;
+                            font-size: 0.9rem;
+                        }
+                        span {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+        }
+        // End Box Styling
+    }
+    @media (prefers-color-scheme: dark) {
+        .content {
+            .box {
+                .image {
+                    .team-image {
+                        border-color: $dark-white-dark-color;
+                        background-color: $dark-white-dark-color;
+                    }
+                }
+                .cont {
+                    .sec-head {
+                        p {
+                            color: $dark-white-dark-color;
+                        }
+                    }
+                    .sec-foot {
+                        >div {
+                            i {
+                                color: $dark-white-dark-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* End Setting Styling */

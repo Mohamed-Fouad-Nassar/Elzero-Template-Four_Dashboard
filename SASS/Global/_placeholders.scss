@@ -1,0 +1,212 @@
+@use './variables' as *;
+%transition {
+    transition-duration: 0.3s;
+    transition-delay: 0s;
+}
+
+%reset {
+    margin: 0;
+    padding: 0;
+}
+
+%link {
+    color: $black-color;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+%grid-200-20 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $main-element-padding
+}
+
+%grid-250-20 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $main-element-padding
+}
+
+%grid-300-20 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $main-element-padding
+}
+
+%grid-400-20 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: $main-element-padding
+}
+
+%flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%flex-center-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+%flex-center-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+%flex-center-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+%flex-center-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+%flex-center-evenly {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+%flex-start-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+%inline-flex-center {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%flex-center-h {
+    @extend %flex-center;
+    flex-direction: column;
+}
+
+%flex-stretch-h {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+%border-radius-5 {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+%border-radius-10 {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+%border-radius-25 {
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+%border-radius-50 {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+%translate-50 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+%translate-x-50 {
+    left: 50%;
+    transform: translateX( -50%);
+    -webkit-transform: translateX( -50%);
+    -moz-transform: translateX( -50%);
+    -ms-transform: translateX( -50%);
+    -o-transform: translateX( -50%);
+}
+
+%translate-y-50 {
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+%part-setting-sec {
+    h4 {
+        font-weight: 500;
+        margin: 0 {
+            bottom: 10px;
+        }
+    }
+    span {
+        font-size: 0.9rem;
+    }
+}
+
+%social-media-50 {
+    margin-top: $up-down-padding;
+    a {
+        @extend %inline-flex-center;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        margin-top: -30px;
+        @extend %border-radius-50;
+        .social-icon {
+            color: $white-color;
+            font-size: 1.2rem;
+        }
+        &:hover {
+            background-color: $white-color;
+        }
+    }
+}
+
+%social-media {
+    margin-top: $up-down-padding;
+    a {
+        @extend %inline-flex-center;
+        width: 40px;
+        height: 40px;
+        background-color: $white-color;
+        margin-top: -30px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        .social-icon {
+            font-size: 1.2rem;
+        }
+        &:hover {
+            background-color: $main-color;
+        }
+    }
+}

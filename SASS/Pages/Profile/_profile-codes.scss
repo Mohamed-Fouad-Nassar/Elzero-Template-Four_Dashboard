@@ -1,0 +1,254 @@
+// Import Global Styling:-
+@use '../../Global/global' as *;
+// Import Placeholders Styling:-
+@use '../../Global/placeholders' as *;
+// Import Variables Styling:-
+@use '../../Global/variables' as *;
+
+/* Start Setting Styling:- */
+
+.profile {
+    .content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        @media (max-width: 991px) {
+            display: flex;
+            flex-direction: column;
+        }
+        @media (max-width: 575px) {
+            gap: 10px;
+        }
+        // Start Data Styling:- 
+        .data {
+            font-weight: 500;
+            padding: 0;
+            grid-column: span 3;
+            .cont {
+                @extend %flex-center-between;
+                @media (max-width: 767px) {
+                    flex-direction: column;
+                }
+                .left {
+                    max-width: 250px;
+                    padding: 20px;
+                    border-right: 1px solid $dark-white;
+                    @extend %flex-center-h;
+                    @media (max-width: 767px) {
+                        border-right: none;
+                        border-bottom: 1px solid $dark-white;
+                    }
+                    .image {
+                        @media (max-width: 575px) {
+                            width: 100px;
+                        }
+                        max-width: 120px;
+                    }
+                    .text {
+                        h2 {
+                            margin: 0 {
+                                top: 15px;
+                            }
+                            font-size: 1.3rem;
+                        }
+                        span {
+                            display: block;
+                            text-align: center;
+                            font-weight: 600;
+                            margin-top: 15px;
+                            margin-bottom: 15px;
+                            &:last-of-type {
+                                margin: 0;
+                                font: {
+                                    size: 0.8rem;
+                                    weight: 500;
+                                }
+                            }
+                        }
+                        .stars {
+                            @extend %flex-center-evenly;
+                            padding: {
+                                top: 15px;
+                                bottom: 15px;
+                            }
+                            i {
+                                color: $orange-color;
+                            }
+                        }
+                    }
+                }
+                .right {
+                    flex: 1;
+                    @media (max-width: 767px) {
+                        width: 100%;
+                    }
+                    .box {
+                        padding: 20px {
+                            top: 50px;
+                        }
+                        @extend %grid-250-20;
+                        @media (max-width: 575px) {
+                            gap: 10px;
+                            padding: 10px {
+                                top: 50px;
+                            }
+                        }
+                        &:hover {
+                            background-color: $element-background-color;
+                        }
+                        &::before {
+                            content: attr(data-attr);
+                            width: calc(100% - 40px);
+                            position: absolute;
+                            color: $light-color;
+                            top: 20px;
+                            left: 20px;
+                            @media (max-width: 767px) {
+                                top: 15px;
+                                text-align: center;
+                            }
+                        }
+                        &:not(:first-of-type) {
+                            border-top: 1px solid $dark-white;
+                        }
+                        position: relative;
+                        .felid {
+                            span {
+                                &:last-of-type {
+                                    color: $black-color;
+                                }
+                            }
+                        }
+                        .check-box {
+                            padding: 0;
+                            @media (max-width: 991px) {
+                                height: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+            @media (prefers-color-scheme: dark) {
+                .cont {
+                    .left {
+                        border-color: $dark-white-dark-color;
+                    }
+                    .right {
+                        .box {
+                            border-color: $dark-white-dark-color;
+                            &:hover {
+                                background-color: $main-dark-background-color;
+                            }
+                            .felid {
+                                span {
+                                    &:last-of-type {
+                                        color: $white-dark-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // End Data Styling 
+        // Start Skills Styling:- 
+        .skills {
+            .cont {
+                .box {
+                    @extend %flex-center-start;
+                    gap: 10px;
+                    padding: 10px 0;
+                    &:first-of-type {
+                        padding-top: 0;
+                    }
+                    &:last-of-type {
+                        padding-bottom: 0;
+                    }
+                    &:not(:last-of-type) {
+                        border-bottom: 1px solid $dark-white;
+                    }
+                    span {
+                        color: $black-color;
+                        background-color: $dark-white;
+                        padding: 5px 10px;
+                        font: {
+                            size: 0.9rem;
+                            weight: 500;
+                        }
+                        @extend %border-radius-5;
+                    }
+                }
+            }
+            @media (prefers-color-scheme: dark) {
+                .cont {
+                    .box {
+                        border-color: $dark-white-dark-color;
+                    }
+                }
+            }
+        }
+        // End Skills Styling 
+        // Start Activities Styling:- 
+        .activities {
+            grid-column: span 2;
+            .cont {
+                .box {
+                    @extend %flex-center-between;
+                    gap: 15px;
+                    &:not(:first-of-type) {
+                        margin-top: 20px;
+                    }
+                    @media (max-width: 575px) {
+                        flex-direction: column;
+                        text-align: center;
+                    }
+                    .image {
+                        width: 75px;
+                    }
+                    .data,
+                    .time {
+                        @extend %flex-center-h;
+                        span {
+                            &:first-of-type {
+                                color: $black-color;
+                                margin-bottom: 10px;
+                            }
+                        }
+                    }
+                    .data {
+                        flex: 1;
+                        align-items: flex-start;
+                        @media (max-width: 575px) {
+                            align-items: center;
+                        }
+                    }
+                    .time {
+                        align-items: flex-end;
+                        @media (max-width: 575px) {
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+            @media (prefers-color-scheme: dark) {
+                .cont {
+                    .box {
+                        .data,
+                        .time {
+                            span {
+                                &:first-of-type {
+                                    color: $white-dark-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // End Activities Styling 
+    }
+}
+
+
+/* End Setting Styling */
