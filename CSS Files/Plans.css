@@ -762,6 +762,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  background-color: #FFF;
 }
 @media (max-width: 420px) {
   header {
